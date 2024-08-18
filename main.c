@@ -3,4 +3,5 @@
 int main(int argc, const char* argv[]) {
   List tokens = scan(argv[1]);
   printTokens(&tokens);
+  destroy_list(&tokens);
 }

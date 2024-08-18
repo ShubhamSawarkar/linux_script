@@ -4,7 +4,7 @@
 void printTokens(List *tokens) {
   for (unsigned int i=0; i<tokens->size; ++i) {
     Token *tokenArr = tokens->head;
-    if (i > 0 && tokenArr[i-1].line != tokenArr[i].line) {
+    if (i == 0 || tokenArr[i-1].line != tokenArr[i].line) {
       printf("%ld\t", tokenArr[i].line);
     } else {
       printf("|\t");

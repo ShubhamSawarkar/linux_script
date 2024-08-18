@@ -4,7 +4,7 @@
 
 #define MAKE_TOKEN(type, start, end, line) (Token) { type, start, end, line }
 
-#define IS_DIGIT(c) c >= '0' || c <= '9'
+#define IS_DIGIT(c) c >= '0' && c <= '9'
 
 #define IS_BLANK(c) c == ' ' || c == '\t' || c == '\r'
 
@@ -170,6 +170,6 @@ List scan(const char *source) {
     }
 
     add(&sc.tokens, &token);
-    return tokens;
   }
+  return sc.tokens;
 }

@@ -21,7 +21,7 @@ void add(List *list, void *item) {
   if (list->size + 1 > list->capacity) {
     expandList(list);
   }
-  memcpy(list->head + list->size, item, list->item_len);
+  memcpy(list->head + list->item_len * list->size, item, list->item_len);
   ++list->size;
 }
 

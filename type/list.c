@@ -25,6 +25,12 @@ void add(List *list, void *item) {
   ++list->size;
 }
 
+void update(List *list, size_t index, void *item) {
+  if (index < list->size) {
+    memcpy(list->head + index, item, list->item_len);
+  }
+}
+
 void destroy_list(List *list) {
   if (list->head != NULL) {
     free(list->head);

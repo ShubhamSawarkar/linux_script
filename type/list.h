@@ -18,6 +18,8 @@ List list(size_t item_len);
 
 void add(List *list, void *item);
 
+void update(List *list, size_t index, void *item);
+
 void destroy_list(List *list);
 
 #endif

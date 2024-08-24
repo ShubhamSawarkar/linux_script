@@ -39,15 +39,17 @@ static Token error(const char *errorMsg) {
 static Token string() {
   Token token = MAKE_TOKEN(TOKEN_LITERAL_STRING, sc.curr, NULL, sc.curr_line);
   while (next() != '"' && sc.prev) if (IS_LINE_TERMINATOR(sc.prev)) ++sc.curr_line;
-  if (sc.prev != '"') error(COMPILATION_ERROR_UNCLOSED_STRING);
-  token.end = sc.curr - 1;
+  if (sc.prev != '"') token = error(COMPILATION_ERROR_UNCLOSED_STRING);
+  else token.end = sc.curr - 1;
   return token;
 }
 
 static Token number() {
   Token token = MAKE_TOKEN(TOKEN_LITERAL_NUMBER, sc.curr - 1, NULL, sc.curr_line);
   while (IS_DIGIT(peek())) next();
-  if (sc.prev == '.' && IS_DIGIT(peekNext())) while (IS_DIGIT(peek())) next();
+  if (peek() == '.' && IS_DIGIT(peekNext())) {
+    do next(); while (IS_DIGIT(peek()));
+  }
   token.end = sc.curr;
   return token;
 }

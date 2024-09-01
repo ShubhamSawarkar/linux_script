@@ -27,7 +27,7 @@ void add(List *list, void *item) {
 
 void update(List *list, size_t index, void *item) {
   if (index < list->size) {
-    memcpy(list->head + index, item, list->item_len);
+    memcpy(list->head + list->item_len * index, item, list->item_len);
   }
 }
 

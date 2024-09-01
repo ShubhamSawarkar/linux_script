@@ -27,9 +27,9 @@ typedef uint16_t opcode_size_t;
 
 ByteCode byteCode();
 
-void writeCodeChunk(ByteCode *byteCode, opcode_size_t chunk);
+void writeCodeChunk(ByteCode *byteCode, opcode_size_t chunk, size_t line);
 
-void writeConstant(ByteCode *byteCode, Value value);
+void writeConstant(ByteCode *byteCode, Value *value, size_t line);
 
 void destroyByteCode(ByteCode *byteCode);
 

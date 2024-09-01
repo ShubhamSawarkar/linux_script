@@ -12,3 +12,7 @@ void printTokens(List *tokens) {
     printf("%2d\t%.*s\n",tokenArr[i].type, tokenArr[i].end - tokenArr[i].start, tokenArr[i].start);
   }
 }
+
+void disassemble(ByteCode *byteCode) {
+  
+}

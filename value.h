@@ -7,4 +7,8 @@ union Value {
 
 typedef union Value Value;
 
+#define TO_VAL(num) ( (Value) { .number = ( num ) } )
+
+void printValue(Value *val);
+
 #endif
